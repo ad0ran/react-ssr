@@ -1,0 +1,9 @@
+{
+  "name": "react-ssr",
+  "version": "1.0.0",
+  "description": "react server side rendering sandbox",
+  "main": "./src/server/index.ts",
+  "author": "ad0ran",
+  "license": "MIT",
+  "private": true
+}
