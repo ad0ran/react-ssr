@@ -7,7 +7,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "build-serve": "yarn build && yarn serve",
+    "build-serve:local": "yarn build:local && yarn serve",
     "build": "webpack --env.NODE_ENV development --config webpack.build.ts",
+    "build:local": "webpack --env.NODE_ENV local --config webpack.build.ts --hot --color",
     "serve": "node build/server.js"
   },
   "devDependencies": {
@@ -28,6 +31,7 @@
     "@types/react-router-dom": "^4.3.5",
     "@types/webpack": "^4.39.1",
     "@types/webpack-dev-middleware": "^2.0.3",
+    "@types/webpack-dev-server": "^3.1.7",
     "@types/webpack-hot-middleware": "^2.16.5",
     "@types/webpack-merge": "^4.1.5",
     "@types/webpack-node-externals": "^1.6.3",
@@ -48,6 +52,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "@hot-loader/react-dom": "^16.9.0",
     "core-js": "^3.2.1",
     "express": "^4.17.1",
     "react": "^16.9.0",
