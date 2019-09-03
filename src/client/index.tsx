@@ -14,4 +14,4 @@ const Index = () => {
 
 const HotIndex = hot(Index);
 
-hydrate(<HotIndex />, document.getElementById('app-root'));
+hydrate(module && module.hot ? <HotIndex /> : <Index />, document.getElementById('app-root'));

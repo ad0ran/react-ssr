@@ -12,14 +12,14 @@ const sharedPlugins = [
 const client: Configuration = smart(config.client, {
     mode: 'development',
     devtool: 'source-map',
-    devServer: {
-        contentBase: [
-            path.resolve(process.cwd(), 'build', 'client'),
-            path.resolve(process.cwd(), 'src', 'client', 'assets'),
-        ],
-        historyApiFallback: true,
-        publicPath: '/',
-    },
+    // devServer: {
+    //     contentBase: [
+    //         path.resolve(process.cwd(), 'build', 'client'),
+    //         path.resolve(process.cwd(), 'src', 'client', 'assets'),
+    //     ],
+    //     historyApiFallback: true,
+    //     publicPath: '/',
+    // },
     entry: {
         app: [
             'webpack-hot-middleware/client?path=/__hmr',

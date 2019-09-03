@@ -32,6 +32,7 @@
     "@types/webpack": "^4.39.1",
     "@types/webpack-dev-middleware": "^2.0.3",
     "@types/webpack-dev-server": "^3.1.7",
+    "@types/webpack-env": "^1.14.0",
     "@types/webpack-hot-middleware": "^2.16.5",
     "@types/webpack-merge": "^4.1.5",
     "@types/webpack-node-externals": "^1.6.3",

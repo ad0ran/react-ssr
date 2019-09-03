@@ -18,18 +18,18 @@ export default (template: ITemplate) => {
     } = template;
 
     return `
-        <!DOCTYPE html>
-        <html>
-            <head>
-                <title>${title}</title>
-                <meta name="viewport" content="width=device-width,initial-scale=1" />
-                <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-                ${css.map((x) => renderToStaticMarkup(x))}
-            </head>
-            <body>
-                <div id="app-root">${renderToString(body)}</div>
-                ${scripts.map((x) => renderToStaticMarkup(x))}
-            </body>
-        </html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>${title}</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        ${css.map((x) => renderToStaticMarkup(x))}
+    </head>
+    <body>
+        <div id="app-root">${renderToString(body)}</div>
+        ${scripts.map((x) => renderToStaticMarkup(x))}
+    </body>
+</html>
     `;
 };

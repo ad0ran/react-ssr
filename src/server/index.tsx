@@ -27,14 +27,12 @@ const initialize = (config: Configuration) => {
     });
 
     if (module && !module.hot) {
-        console.log('not hot');
         app.use(express.static(path.resolve(__dirname, '..', '..', 'build', 'client')));
     }
 
     app.use(instance);
 
     if (module && module.hot) {
-        console.log('hot');
         app.use(whm(compiler, {
             path: '/__hmr',
             log: console.log,
@@ -47,7 +45,8 @@ const initialize = (config: Configuration) => {
         const webpackStatsObj = webpackStats.toJson();
 
         const { assetsByChunkName, publicPath } = webpackStatsObj;
-        const normalized = [assetsByChunkName!.app].flat();
+
+        const normalized = [...Object.keys(config.entry!).map((key) => assetsByChunkName![key])].flat();
 
         const template = templateFactory({
             body: (
@@ -60,6 +59,12 @@ const initialize = (config: Configuration) => {
                 .map((x, i) => {
                     const src = url.resolve(publicPath!, x);
                     return (<script key={i} src={src} defer />);
+                }),
+            css: normalized
+                .filter((x: string) => x.endsWith('.css'))
+                .map((x, i) => {
+                    const src = url.resolve(publicPath!, x);
+                    return (<link key={i} rel="stylesheet" type="text/css" href={src} />);
                 }),
         });
 
